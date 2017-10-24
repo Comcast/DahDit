@@ -14,6 +14,6 @@ The View can have the dot's radius, dash's height/width, the minimum gap between
 
 Here's what the sample app looks like if you launch it:
 
-![Demo showing line appearance](dahdit-sample.png?raw=true)
+<img src="dahdit-sample.png" height="480" alt="Demo showing appearances">
 
 Note the ImageView using wrap_content can't be seen at all. Meanwhile, all the dashed and dotted lines fit nicely, and flush their dots/dashes to the edge of their view.
