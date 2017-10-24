@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DottedLine">
+        <attr name="minimumDotGap" format="dimension"/>
+        <attr name="dotRadius" format="dimension"/>
+        <attr name="dotColor" format="color"/>
+        <attr name="orientation" format="enum">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="DashedLine">
+        <attr name="minimumDashGap" format="dimension"/>
+        <attr name="dashHeight" format="dimension"/>
+        <attr name="dashLength" format="dimension"/>
+        <attr name="dashColor" format="color"/>
+        <attr name="orientation"/>
+    </declare-styleable>
+</resources>

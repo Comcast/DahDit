@@ -1,0 +1,67 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'maven-publish'
+
+def libraryVersion = "0.9.3"
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+
+    defaultConfig {
+        minSdkVersion 11
+        targetSdkVersion 25
+        versionCode 1
+        versionName "$libraryVersion"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'junit:junit:4.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
+
+repositories {
+    mavenCentral()
+}
+
+task sourceJar(type: Jar) {
+    classifier "source"
+    from android.sourceSets.main.java.srcDirs
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId 'com.xfinity'
+            artifactId 'dahdit'
+            version "$libraryVersion"
+
+            artifact sourceJar {
+                classifier "sources"
+            }
+            artifact("$buildDir/outputs/aar/library-release.aar")
+        }
+
+    }
+
+    repositories {
+        maven {
+            url "$buildDir/repo"
+        }
+    }
+}
