@@ -17,3 +17,11 @@ Here's what the sample app looks like if you launch it:
 <img src="dahdit-sample.png" height="480" alt="Demo showing appearances">
 
 Note the ImageView using wrap_content can't be seen at all. Meanwhile, all the dashed and dotted lines fit nicely, and flush their dots/dashes to the edge of their view.
+
+## Using DahDit
+
+DahDit is available on MavenCentral. To use DahDit, in your project build.gradle add
+
+```xml
+compile 'com.xfinity:dahdit:0.9.3'
+```
